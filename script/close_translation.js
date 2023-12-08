@@ -1,0 +1,3 @@
+if (translationObserver) {
+    translationObserver.disconnect();
+}
