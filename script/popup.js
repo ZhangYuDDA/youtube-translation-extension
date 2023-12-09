@@ -69,14 +69,6 @@ function showTranslationText(source, target) {
 }
 
 
-function closeTranslation() {
-    if (typeof translationObserver !== 'undefined') {
-        console.log("jinqule ")
-        translationObserver.disconnect();
-    }
-}
-
-
 async function getCurrentTab() {
     let queryOptions = { active: true };
     let [tab] = await chrome.tabs.query(queryOptions);
@@ -103,11 +95,11 @@ openBtn.onclick = () => {
 }
 
 sourceS.onchange = () => {
-    source = this.value;
+    source = sourceS.value;
     chrome.storage.session.set({ ["tab-" + tabId]: { source: source, target: target, state: state } });
 }
 
 targetS.onchange = () => {
-    target = this.value;
+    target = targetS.value;
     chrome.storage.session.set({ ["tab-" + tabId]: { source: source, target: target, state: state } });
 }
